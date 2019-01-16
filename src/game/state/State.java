@@ -17,7 +17,7 @@ public class State {
     //private Map<Player, Map<String, Chessman>> store = new HashMap<>();
 
 
-    //id -> chessman
+    //cell -> chessman
     private Map<Cell, Chessman> store = new HashMap<>();
 
 
@@ -35,6 +35,10 @@ public class State {
 
     public void addChessman(Chessman ch) {
         store.put(ch.getCell(), ch);
+    }
+
+    public Chessman getChessman(Cell c) {
+        return store.get(c);
     }
 
     @Override

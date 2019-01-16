@@ -7,7 +7,7 @@ public class Test {
         Character c = '\u2654';
         System.out.println(c);
         c++;
-        System.out.println(c);
+        System.out.println(c);  //'\u2655'
         c++;
         System.out.println(c);
         c++;
