@@ -11,6 +11,9 @@ import game.printer.ConsoleStatePrinter;
 import game.printer.StatePrinter;
 import game.state.State;
 
+/**
+ * Основной клас игры
+ */
 public class Game {
     private StatePrinter statePrinter = new ConsoleStatePrinter();
     private State state  = new State();
