@@ -4,10 +4,12 @@ import game.field.Cell;
 import game.player.Color;
 import game.player.Player;
 
-public class Chessman {
+public abstract class Chessman {
     protected String id;
     protected Cell cell;
     protected Player owner;
+
+    protected char picture ;
 
 
     public String getId() {
@@ -43,10 +45,14 @@ public class Chessman {
         return id + "\\" +  getColor();
     }
 
-    public Chessman(String id, Player player) {
+    public Chessman(String id, Player player, char picture) {
         owner = player;
         this.id = id;
+        this.picture = picture;
     }
 
+    public char getPicture(){
+        return picture;
+    }
 
 }

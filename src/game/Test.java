@@ -5,17 +5,18 @@ import game.player.Player;
 public class Test {
     public static void main(String[] args) {
         Character c = '\u2654';
-        System.out.println(c);
+        System.out.print(c);  //♔
+        System.out.println(" "+(int)c.charValue());  //♔
         c++;
-        System.out.println(c);  //'\u2655'
+        System.out.println(c);  //♕
         c++;
-        System.out.println(c);
+        System.out.println(c);  //♖
         c++;
-        System.out.println(c);
+        System.out.println(c);  //♗
         c++;
-        System.out.println(c);
+        System.out.println(c);  //♘
         c++;
-        System.out.println(c);
+        System.out.println(c);  //♙
         c++;
         System.out.println(c);
         c++;
