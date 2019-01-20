@@ -1,10 +1,9 @@
 package game.chessman;
 
 import game.player.Player;
-public class Bishop extends Chessman {
 
-    public Bishop(String id, Player player) {
+public class Queen extends Chessman {
+    public Queen(String id, Player player) {
         super(id, player);
     }
-
 }
