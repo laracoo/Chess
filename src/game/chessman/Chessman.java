@@ -45,6 +45,11 @@ public abstract class Chessman {
         return id + "\\" +  getColor();
     }
 
+    public Chessman(String id, Player player) {
+        owner = player;
+        this.id = id;
+    }
+
     public Chessman(String id, Player player, char picture) {
         owner = player;
         this.id = id;

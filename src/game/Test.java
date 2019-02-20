@@ -8,9 +8,9 @@ public class Test {
         System.out.print(c);  //♔
         System.out.println(" "+(int)c.charValue());  //♔
         c++;
-        System.out.println(c);  //♕
+        System.out.println(c);  //♕ u2655       u2659, u265A, u265B
         c++;
-        System.out.println(c);  //♖
+        System.out.println(c);  //♖   ♖  ♜
         c++;
         System.out.println(c);  //♗
         c++;

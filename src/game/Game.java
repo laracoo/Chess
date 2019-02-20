@@ -42,7 +42,7 @@ public class Game {
         createKing(player2);
         createKing(player1);
 
-        //System.out.println(state);
+        System.out.println(state);
         statePrinter.printState(state);
 
         System.out.println("Игра началась");

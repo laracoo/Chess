@@ -18,7 +18,8 @@ public class State {
 
 
     //cell -> chessman
-    private Map<Cell, Chessman> store = new HashMap<>();
+    //      тип переменной      имя переменной      ее реализация
+    private Map<Cell, Chessman> store           = new HashMap<>();
 
 
     /*public void addChessman(Chessman c1) {
@@ -33,6 +34,7 @@ public class State {
         innerMap.put(id,c1);
     }*/
 
+    //      тип     имя     арг
     public void addChessman(Chessman ch) {
         store.put(ch.getCell(), ch);
     }
