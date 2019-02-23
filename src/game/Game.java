@@ -52,6 +52,16 @@ public class Game {
         cap.printState(state);
 
 
+        // временное измнение
+        Cell from = new Cell(Cell.Letter.D, 2);
+        Cell to = new Cell(Cell.Letter.D, 4);
+
+        state.changePosition(from, to);
+
+
+        System.out.println("============================");
+        cap.printState(state);
+
     }
 
     private void createPawns(Player player) {

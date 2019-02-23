@@ -33,7 +33,7 @@ public class Lesson5H extends lesson4 {
     }
 
     /**
-     * TODO Homework 5
+     *
      * Написать реализацию итератора
      */
     static class StringIterator implements Iterator<String> {

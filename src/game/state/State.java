@@ -47,4 +47,12 @@ public class State {
     public String toString() {
         return store.toString();
     }
+
+    //Изменяет позицию фигуры с клетки from на клетку to
+    public void changePosition(Cell from, Cell to) {
+        //TODO DZ
+
+
+
+    }
 }

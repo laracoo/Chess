@@ -8,10 +8,24 @@ import game.state.State;
 import java.util.List;
 
 public class ChessStatePrinter implements StatePrinter {
+    Field f2 = new Field();
+
     @Override
     public void printState(State state) {
+        for (int u = 0; u < 8; u++) {
+            List<Cell> row3 = f2.getRow(u);
+            for (int i = 0; i < 8; i++) {
+                Chessman chee = state.getChessman(row3.get(i));
+                if (chee == null) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print(chee.getPicture());
+                }
 
-
+            }
+            System.out.println();
+        }
+/*
         System.out.println("=========pawns===========");
         Chessman chee = state.getChessman(new Cell(Cell.Letter.A, 2));
         System.out.println(chee.getPicture());
@@ -42,11 +56,8 @@ public class ChessStatePrinter implements StatePrinter {
         System.out.println(chee.getPicture());
         chee = state.getChessman(new Cell(Cell.Letter.B,8 ));
         System.out.println(chee.getPicture());
+*/
 
-
-        Field field = new Field();
-        List<Cell> row = field.getRow(0);
-        System.out.println(row);
 
     }
 }
