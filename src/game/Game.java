@@ -56,7 +56,7 @@ public class Game {
         Cell from = new Cell(Cell.Letter.D, 2);
         Cell to = new Cell(Cell.Letter.D, 4);
 
-        state.changePosition(from, to);
+        state.changePosition(from,to);
 
 
         System.out.println("============================");

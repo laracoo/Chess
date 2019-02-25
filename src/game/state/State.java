@@ -7,6 +7,7 @@ import game.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * хранит состояние игры
@@ -50,6 +51,10 @@ public class State {
 
     //Изменяет позицию фигуры с клетки from на клетку to
     public void changePosition(Cell from, Cell to) {
+       Chessman first = store.get(from);
+       store.put(to,first);
+       store.remove(from);
+
         //TODO DZ
 
 
