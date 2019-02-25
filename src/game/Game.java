@@ -57,24 +57,31 @@ public class Game {
             Cell from = new Cell(Cell.Letter.A, 2);
             Cell to = new Cell(Cell.Letter.A, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.B, 2);
             to = new Cell(Cell.Letter.B, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.C, 2);
             to = new Cell(Cell.Letter.C, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.D, 2);
             to = new Cell(Cell.Letter.D, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.E, 2);
             to = new Cell(Cell.Letter.E, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.F, 2);
             to = new Cell(Cell.Letter.F, 4);
         state.changePosition( from, to);
+
             from = new Cell(Cell.Letter.G, 2);
             to = new Cell(Cell.Letter.G, 4);
         state.changePosition( from, to);
+
         from = new Cell(Cell.Letter.H, 2);
         to = new Cell(Cell.Letter.H, 4);
         state.changePosition( from, to);
