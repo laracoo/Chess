@@ -20,6 +20,13 @@ public abstract class Chessman {
         this.id = id;
     }
 
+    public abstract boolean canMove(Cell cell);
+    public abstract boolean canEat(Cell cell);
+
+    /**
+     * Клетка на которой стоит фигура
+     * @return
+     */
     public Cell getCell() {
         return cell;
     }

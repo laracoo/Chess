@@ -20,7 +20,7 @@ public class State {
 
     //cell -> chessman
     //      тип переменной      имя переменной      ее реализация
-    private Map<Cell, Chessman> store           = new HashMap<>();
+    private Map<Cell, Chessman> store = new HashMap<>();
 
 
     /*public void addChessman(Chessman c1) {
@@ -51,11 +51,12 @@ public class State {
 
     //Изменяет позицию фигуры с клетки from на клетку to
     public void changePosition(Cell from, Cell to) {
-       Chessman first = store.get(from);
-       store.put(to,first);
-       store.remove(from);
+        Chessman first = getChessman(from);
+        store.remove(from);
+        first.setCell(to);
+        addChessman(first);
+        //store.put(to, first);
 
-        //TODO DZ
 
 
 
