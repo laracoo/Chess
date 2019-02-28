@@ -10,6 +10,10 @@ import java.util.List;
 public class ChessStatePrinter implements StatePrinter {
     Field f2 = new Field();
 
+    /**
+     * Расставляем фигуры по клеткам
+     * @param state
+     */
     @Override
     public void printState(State state) {
         for (int u = 0; u < 8; u++) {

@@ -2,7 +2,9 @@ package game;
 
 import game.field.Cell;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Utils {
 
@@ -13,13 +15,30 @@ public class Utils {
      * @return
      */
     public static int betweenLetters(Cell.Letter l1, Cell.Letter l2) {
+        int n = 0;
+        int y = 0;
         Cell.Letter[] values = Cell.Letter.values();
-        //System.out.println(Arrays.toString(values));
-        // TODO DZ
-        return 0;
+        List t = Arrays.asList(values);
+
+        for(int i = 0; i < t.size(); i++) {
+
+            if(l1 == t.get(i)){
+                n = i;
+
+            }
+            if (l2 == t.get(i)){
+                y = i;
+                System.out.println(i);
+            }
+
+        }
+        int g = y - n;
+
+return g;
+
     }
 
     public static void main(String[] args) {
-        System.out.println(betweenLetters(Cell.Letter.A, Cell.Letter.C));   //2
+        System.out.println("Result:"+betweenLetters(Cell.Letter.A, Cell.Letter.D));   //3
     }
 }
