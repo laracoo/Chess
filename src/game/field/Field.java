@@ -15,6 +15,11 @@ public class Field {
         }
     }
 
+    /**
+     * Создаем лист котрый состоит из 8 листов в которых в каждом 8 элементов
+     * @param g
+     * @return
+     */
     private List<Cell> generateRow(int g) {
         List<Cell> row1 = new ArrayList<>();
 

@@ -92,6 +92,10 @@ public class Game {
 
     }
 
+    /**
+     * Создаю пешки двух цветов
+     * @param player
+     */
     private void createPawns(Player player) {
         Cell.Letter[] values = Cell.Letter.values();
         int numb = 2;
@@ -115,6 +119,10 @@ public class Game {
         this.field = field;
     }
 
+    /**
+     * Создаю слонов двух цветов
+     * @param player
+     */
     private void createElephants(Player player) {
         int numb = 1;
         if (player.getColor() == Color.BLACK)
@@ -129,7 +137,10 @@ public class Game {
         elephant.setCell(d);
         state.addChessman(elephant);
     }
-
+    /**
+     * Создаю ладьи двух цветов
+     * @param player
+     */
     private void createRoot(Player player) {
         int numb = 1;
         if (player.getColor() == Color.BLACK)
@@ -145,7 +156,10 @@ public class Game {
         state.addChessman(rook);
 
     }
-
+    /**
+     * Создаю коня двух цветов
+     * @param player
+     */
     private void createKnight(Player player) {
         int numb = 1;
         if (player.getColor() == Color.BLACK)
@@ -161,7 +175,10 @@ public class Game {
         state.addChessman(knight);
 
     }
-
+    /**
+     * Создаю королев двух цветов
+     * @param player
+     */
     private void createQueen(Player player) {
         int numb = 1;
         if (player.getColor() == Color.BLACK)
@@ -171,7 +188,10 @@ public class Game {
         queen.setCell(se);
         state.addChessman(queen);
     }
-
+    /**
+     * Создаю королей двух цветов
+     * @param player
+     */
     private void createKing(Player player) {
         int numb = 1;
         if (player.getColor() == Color.BLACK)

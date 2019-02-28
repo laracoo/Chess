@@ -44,12 +44,20 @@ public class State {
         return store.get(c);
     }
 
+    /**
+     * ??????????
+     * @return
+     */
     @Override
     public String toString() {
         return store.toString();
     }
 
-    //Изменяет позицию фигуры с клетки from на клетку to
+    /**
+     * Изменяем позицию фигуры с клетки from на клетку to
+     * @param from
+     * @param to
+     */
     public void changePosition(Cell from, Cell to) {
         Chessman first = getChessman(from);
         store.remove(from);
