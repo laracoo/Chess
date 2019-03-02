@@ -3,6 +3,7 @@ package game;
 import game.chessman.*;
 import game.field.Cell;
 import game.field.Field;
+import game.field.Letter;
 import game.player.Color;
 import game.player.Player;
 import game.printer.ChessStatePrinter;
@@ -54,36 +55,36 @@ public class Game {
 
         // временное измнение
 
-        Cell from = new Cell(Cell.Letter.A, 2);
-        Cell to = new Cell(Cell.Letter.A, 4);
+        Cell from = new Cell(Letter.A, 2);
+        Cell to = new Cell(Letter.A, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.B, 2);
-        to = new Cell(Cell.Letter.B, 4);
+        from = new Cell(Letter.B, 2);
+        to = new Cell(Letter.B, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.C, 2);
-        to = new Cell(Cell.Letter.C, 4);
+        from = new Cell(Letter.C, 2);
+        to = new Cell(Letter.C, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.D, 2);
-        to = new Cell(Cell.Letter.D, 4);
+        from = new Cell(Letter.D, 2);
+        to = new Cell(Letter.D, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.E, 2);
-        to = new Cell(Cell.Letter.E, 4);
+        from = new Cell(Letter.E, 2);
+        to = new Cell(Letter.E, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.F, 2);
-        to = new Cell(Cell.Letter.F, 4);
+        from = new Cell(Letter.F, 2);
+        to = new Cell(Letter.F, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.G, 2);
-        to = new Cell(Cell.Letter.G, 4);
+        from = new Cell(Letter.G, 2);
+        to = new Cell(Letter.G, 4);
         state.changePosition(from, to);
 
-        from = new Cell(Cell.Letter.H, 2);
-        to = new Cell(Cell.Letter.H, 4);
+        from = new Cell(Letter.H, 2);
+        to = new Cell(Letter.H, 4);
         state.changePosition(from, to);
 
 
@@ -97,7 +98,7 @@ public class Game {
      * @param player
      */
     private void createPawns(Player player) {
-        Cell.Letter[] values = Cell.Letter.values();
+        Letter[] values = Letter.values();
         int numb = 2;
         if (player.getColor() == Color.BLACK)
             numb = 7;
@@ -128,12 +129,12 @@ public class Game {
         if (player.getColor() == Color.BLACK)
             numb = 8;
         Bishop elephant = new Bishop("e1", player);
-        Cell d = new Cell(Cell.Letter.C, numb);
+        Cell d = new Cell(Letter.C, numb);
         elephant.setCell(d);
         state.addChessman(elephant);
 
         elephant = new Bishop("e2", player);
-        d = new Cell(Cell.Letter.F, numb);
+        d = new Cell(Letter.F, numb);
         elephant.setCell(d);
         state.addChessman(elephant);
     }
@@ -146,12 +147,12 @@ public class Game {
         if (player.getColor() == Color.BLACK)
             numb = 8;
         Rook rook = new Rook("r1", player);
-        Cell s = new Cell(Cell.Letter.A, numb);
+        Cell s = new Cell(Letter.A, numb);
         rook.setCell(s);
         state.addChessman(rook);
 
         rook = new Rook("r2", player);
-        s = new Cell(Cell.Letter.H, numb);
+        s = new Cell(Letter.H, numb);
         rook.setCell(s);
         state.addChessman(rook);
 
@@ -165,12 +166,12 @@ public class Game {
         if (player.getColor() == Color.BLACK)
             numb = 8;
         Knight knight = new Knight("k1", player);
-        Cell se = new Cell(Cell.Letter.B, numb);
+        Cell se = new Cell(Letter.B, numb);
         knight.setCell(se);
         state.addChessman(knight);
 
         knight = new Knight("k2", player);
-        se = new Cell(Cell.Letter.G, numb);
+        se = new Cell(Letter.G, numb);
         knight.setCell(se);
         state.addChessman(knight);
 
@@ -184,7 +185,7 @@ public class Game {
         if (player.getColor() == Color.BLACK)
             numb = 8;
         Queen queen = new Queen("q1", player);
-        Cell se = new Cell(Cell.Letter.D, numb);
+        Cell se = new Cell(Letter.D, numb);
         queen.setCell(se);
         state.addChessman(queen);
     }
@@ -197,7 +198,7 @@ public class Game {
         if (player.getColor() == Color.BLACK)
             numb = 8;
         King king = new King("king1", player);
-        Cell se = new Cell(Cell.Letter.E, numb);
+        Cell se = new Cell(Letter.E, numb);
         king.setCell(se);
         state.addChessman(king);
     }

@@ -1,7 +1,6 @@
 package game.field;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Field {
@@ -23,7 +22,7 @@ public class Field {
     private List<Cell> generateRow(int g) {
         List<Cell> row1 = new ArrayList<>();
 
-        Cell.Letter[] values = Cell.Letter.values();
+        Letter[] values = Letter.values();
 
         for (int i = 0; i < 8 ;i++) {
 

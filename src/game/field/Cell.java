@@ -19,24 +19,11 @@ public class Cell {
         return let;
     }
 
-    public enum Letter {
-        A,B,C,D,E,F,G,H
-    }
-
-    /**
-     * печатаю координаты фигур
-     * @return
-     */
     @Override
     public String toString() {
         return let + "" + num;
     }
 
-    /**
-     * Получаем объект клетку
-     * @param o
-     * @return
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,10 +35,6 @@ public class Cell {
         return let == cell.let;
     }
 
-    /**
-     * ????????????????77
-     * @return
-     */
     @Override
     public int hashCode() {
         int result = num;

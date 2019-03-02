@@ -44,10 +44,7 @@ public class State {
         return store.get(c);
     }
 
-    /**
-     * ??????????
-     * @return
-     */
+
     @Override
     public String toString() {
         return store.toString();
