@@ -21,6 +21,13 @@ public class Queen extends Chessman {
         return false;
     }
 
+    /**
+     * передвижение фигур, метод определяет можно ли передвинуть фигуру на ту или инную клетку
+     * @param c1
+     * @param c2
+     * @return
+     */
+
     private boolean action(Cell c1, Cell c2) {
 
         if (c1.getNum() == c2.getNum()) {
@@ -35,9 +42,15 @@ public class Queen extends Chessman {
         int o2 = c2.getNum();
         int j = (o1 > o2) ? o1 - o2 : o2 - o1;
         int k = Utils.betweenLetters(c1.getLet(),c2.getLet());
-        //TODO закончить
-        //System.out.println(k + " " + j);
-        return false;
+      if (j == k){
+          return true;
+      } else {
+          return  false;
+      }
+
+
+
+
     }
 
     public static void main(String[] args) {
