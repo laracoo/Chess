@@ -10,11 +10,18 @@ public class Cell {
     private final int num;
     private final Letter let;
 
+    /**
+     * Возращает цифры для поле от 1 - 8
+     * @return
+     */
     public int getNum() {
         return num;
     }
 
-
+    /**
+     * Возращает буквы для поля от A - H
+     * @return
+     */
     public Letter getLet() {
         return let;
     }

@@ -11,11 +11,18 @@ public abstract class Chessman {
 
     protected char picture ;
 
-
+    /**
+     * Возращает id игрока
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * присвоевает id игроку
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
@@ -24,25 +31,41 @@ public abstract class Chessman {
     public abstract boolean canEat(Cell cell);
 
     /**
-     * Клетка на которой стоит фигура
+     * Возращает клетку на которой стоит фигура
      * @return
      */
     public Cell getCell() {
         return cell;
     }
 
+    /**
+     * Присваивает клетку CEll
+     * @param cell
+     */
     public void setCell(Cell cell) {
         this.cell = cell;
     }
 
+    /**
+     * Определяет игрока(хозяйна фигуры)
+     * @return
+     */
     public Player getOwner() {
         return owner;
     }
 
+    /**
+     * Присваивает owner  игроку
+     * @param owner
+     */
     public void setOwner(Player owner) {
         this.owner = owner;
     }
 
+    /**
+     * Присваеваем цвет игроку( Чёрный или Белый)
+     * @return
+     */
     public Color getColor() {
         return owner.getColor();
     }
@@ -57,12 +80,22 @@ public abstract class Chessman {
 //        this.id = id;
 //    }
 
+    /**
+     * Добавляем в Chessman игрока, цвет игрока и картинку фигуры
+     * @param id
+     * @param player
+     * @param picture
+     */
     public Chessman(String id, Player player, char picture) {
         owner = player;
         this.id = id;
         this.picture = picture;
     }
 
+    /**
+     * Привает картинку определенной фигуре
+     * @return
+     */
     public char getPicture(){
         return picture;
     }

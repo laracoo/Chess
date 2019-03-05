@@ -23,7 +23,9 @@ public class Game {
     private Player player1 = new Player(Color.WHITE);
     private Player player2 = new Player(Color.BLACK);
 
-
+    /**
+     * Создает фигуры каждому игроку по цветам
+     */
     public void start() {
         createPawns(player2);
         createPawns(player1);
@@ -112,10 +114,18 @@ public class Game {
 
     }
 
+    /**
+     * Возращаем Field
+     * @return
+     */
     public Field getField() {
         return field;
     }
 
+    /**
+     * Примвоеваем этому файлу значения
+     * @param field
+     */
     public void setField(Field field) {
         this.field = field;
     }

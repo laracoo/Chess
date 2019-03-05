@@ -6,7 +6,11 @@ import game.player.Player;
 
 public class Pawn extends Chessman {
 
-
+    /**
+     * По цвету игрока присаевает ему соответственного цвета фигуру "пешка"
+     * @param id
+     * @param player
+     */
     public Pawn(String id, Player player) {
         super(id, player, player.getColor() == Color.WHITE ? '\u2659' : '\u265F');
     }

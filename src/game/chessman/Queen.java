@@ -7,6 +7,11 @@ import game.player.Color;
 import game.player.Player;
 
 public class Queen extends Chessman {
+    /**
+     * По цвету игрока присаевает ему соответственного цвета фигуру "королева"
+     * @param id
+     * @param player
+     */
     public Queen(String id, Player player) {
         super(id, player,player.getColor() == Color.WHITE ? '\u2655' : '\u265B');
     }

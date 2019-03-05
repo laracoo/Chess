@@ -6,6 +6,9 @@ import java.util.List;
 public class Field {
     private List<List<Cell>> field = new ArrayList<>();
 
+    /**
+     * создание восьми списков с номерами клетки
+     */
     public Field() {
         for (int i = 8; i > 0; i--) {
             List<Cell> row1 = generateRow(i);
@@ -39,6 +42,12 @@ public class Field {
         System.out.println(field.field);
     }
 */
+
+    /**
+     * Возращает линии нашего поля
+     * @param num
+     * @return
+     */
     public List<Cell> getRow(int num) {
         return field.get(num);
     }

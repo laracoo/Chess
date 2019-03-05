@@ -36,10 +36,20 @@ public class State {
     }*/
 
     //      тип     имя     арг
+
+    /**
+     * ВЫставляет фигуры на определенную им клетку
+     * @param ch
+     */
     public void addChessman(Chessman ch) {
         store.put(ch.getCell(), ch);
     }
 
+    /**
+     * Вернет клетку (ее номер)
+     * @param c
+     * @return
+     */
     public Chessman getChessman(Cell c) {
         return store.get(c);
     }

@@ -16,6 +16,10 @@ public enum Letter {
         this.number = number;
     }
 
+    /**
+     * Возращает Номера букв от A - H
+     * @return
+     */
     public int getNumber() {
         return number;
     }

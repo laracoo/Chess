@@ -5,6 +5,11 @@ import game.player.Color;
 import game.player.Player;
 
 public class Rook extends Chessman {
+    /**
+     * По цвету игрока присаевает ему соответственного цвета фигуру "ладья"
+     * @param id
+     * @param player
+     */
     public Rook(String id, Player player) {
         super(id, player,player.getColor() == Color.WHITE ? '\u2656' : '\u265C');
     }
