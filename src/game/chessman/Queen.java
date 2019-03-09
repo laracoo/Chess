@@ -9,64 +9,27 @@ import game.player.Player;
 public class Queen extends Chessman {
     /**
      * По цвету игрока присаевает ему соответственного цвета фигуру "королева"
+     *
      * @param id
      * @param player
      */
     public Queen(String id, Player player) {
-        super(id, player,player.getColor() == Color.WHITE ? '\u2655' : '\u265B');
+        super(id, player, player.getColor() == Color.WHITE ? '\u2655' : '\u265B');
     }
+
 
     @Override
     public boolean canMove(Cell cell) {
-        return false;
+        boolean d = Utils.onDiagonalLine(this.cell, cell);
+        boolean v = Utils.onVerticalLine(this.cell, cell);
+        boolean h = Utils.onHorizontalLine(this.cell, cell);
+        return d || v || h ;
     }
 
     @Override
     public boolean canEat(Cell cell) {
-        return false;
-    }
 
-    /**
-     * передвижение фигур, метод определяет можно ли передвинуть фигуру на ту или инную клетку
-     * @param c1
-     * @param c2
-     * @return
-     */
-
-    private boolean action(Cell c1, Cell c2) {
-
-        if (c1.getNum() == c2.getNum()) {
-            return true;
-        }
-
-        if (c1.getLet() == c2.getLet()) {
-            return true;
-        }
-
-        int o1 = c1.getNum();
-        int o2 = c2.getNum();
-        int j = (o1 > o2) ? o1 - o2 : o2 - o1;
-        int k = Utils.betweenLetters(c1.getLet(),c2.getLet());
-      if (j == k){
-          return true;
-      } else {
-          return  false;
-      }
-
-
-
-
-    }
-
-    public static void main(String[] args) {
-        Cell l = new Cell(Letter.D, 4);
-        Cell l2 = new Cell(Letter.F, 6);
-        Queen p = new Queen("1", new Player(Color.BLACK));
-        System.out.println(p.action(l , l2));   //true
-
-        Cell l3 = new Cell(Letter.F, 7);
-        System.out.println(p.action(l , l3));   //false
-
+        return canMove(cell);
     }
 
 

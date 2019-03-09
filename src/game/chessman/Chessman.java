@@ -27,7 +27,19 @@ public abstract class Chessman {
         this.id = id;
     }
 
+    /**
+     * передвижение фигур, метод определяет можно ли передвинуть фигуру на клетку Cell
+     *
+     * @param cell
+     * @return
+     */
     public abstract boolean canMove(Cell cell);
+
+    /**
+     *  передвижение фигур, метод определяет можно ли есть фигуру на клетке Cell
+     * @param cell
+     * @return
+     */
     public abstract boolean canEat(Cell cell);
 
     /**

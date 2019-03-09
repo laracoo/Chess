@@ -1,5 +1,6 @@
 package game;
 
+import game.field.Cell;
 import game.field.Letter;
 
 public class Utils {
@@ -17,4 +18,22 @@ public class Utils {
         return (n1 > n2) ? n1 - n2 : n2 - n1;
     }
 
+    public static boolean onVerticalLine(Cell c1, Cell c2) {
+        return c1.getLet() == c2.getLet();
+
+    }
+
+    public static boolean onHorizontalLine(Cell c1, Cell c2) {
+        return c1.getNum() == c2.getNum();
+
+    }
+
+    public static boolean onDiagonalLine(Cell c1, Cell c2) {
+
+        int o1 = c1.getNum();
+        int o2 = c2.getNum();
+        int j = (o1 > o2) ? o1 - o2 : o2 - o1;
+        int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
+        return j == k;
+    }
 }

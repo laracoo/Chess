@@ -1,5 +1,6 @@
 package game.chessman;
 
+import game.Utils;
 import game.field.Cell;
 import game.field.Letter;
 import game.player.Color;
@@ -17,35 +18,21 @@ public class Knight extends Chessman {
 
     @Override
     public boolean canMove(Cell cell) {
-        return false;
+        int x = this.cell.getNum();
+        Letter y = this.cell.getLet();
+
+        int a = cell.getNum();
+        Letter b = cell.getLet();
+
+        int s = a > x ? a - x : x - a;
+        int l = Utils.betweenLetters(y , b);
+        return  (s == 2 && l == 1 || s == 1 && l == 2);
+
     }
 
     @Override
     public boolean canEat(Cell cell) {
-        return false;
+        return canMove(cell);
     }
 
-    /**
-     * передвижение фигур, метод определяет можно ли передвинуть фигуру на ту или инную клетку
-     * @param c1
-     * @param c2
-     * @return
-     */
-    private boolean action(Cell c1, Cell c2) {
-        int x = c1.getNum();
-        Letter y = c1.getLet();
-
-        int a = c2.getNum();
-        Letter b = c2.getLet();
-
-        if (x - a > 2 || a - x > 2) {
-            return false;
-        }
-
-
-
-
-        return true;
-
-    }
 }
