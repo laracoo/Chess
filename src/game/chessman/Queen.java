@@ -28,7 +28,6 @@ public class Queen extends Chessman {
 
     @Override
     public boolean canEat(Cell cell) {
-
         return canMove(cell);
     }
 

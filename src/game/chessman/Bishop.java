@@ -1,5 +1,6 @@
 package game.chessman;
 
+import game.Utils;
 import game.field.Cell;
 import game.player.Color;
 import game.player.Player;
@@ -17,11 +18,12 @@ public class Bishop extends Chessman {
 
     @Override
     public boolean canMove(Cell cell) {
-        return false;
+        boolean d = Utils.onDiagonalLine(this.cell, cell);
+        return d;
     }
 
     @Override
     public boolean canEat(Cell cell) {
-        return false;
+        return canMove(cell);
     }
 }

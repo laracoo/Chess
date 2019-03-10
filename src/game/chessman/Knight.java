@@ -27,7 +27,6 @@ public class Knight extends Chessman {
         int s = a > x ? a - x : x - a;
         int l = Utils.betweenLetters(y , b);
         return  (s == 2 && l == 1 || s == 1 && l == 2);
-
     }
 
     @Override

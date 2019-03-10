@@ -1,5 +1,6 @@
 package game.chessman;
 
+import game.Utils;
 import game.field.Cell;
 import game.player.Color;
 import game.player.Player;
@@ -16,11 +17,13 @@ public class Rook extends Chessman {
 
     @Override
     public boolean canMove(Cell cell) {
-        return false;
+        boolean v = Utils.onVerticalLine(this.cell, cell);
+        boolean h = Utils.onHorizontalLine(this.cell, cell);
+        return v || h;
     }
 
     @Override
     public boolean canEat(Cell cell) {
-        return false;
+        return canMove(cell);
     }
 }
