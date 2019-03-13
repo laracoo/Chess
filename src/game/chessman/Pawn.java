@@ -18,13 +18,32 @@ public class Pawn extends Chessman {
 
     @Override
     public boolean canMove(Cell cell) {
-        boolean p = Utils.pawnGo(this.cell, cell);
-        return p;
+        int k = Utils.betweenLetters(this.cell.getLet(), cell.getLet());
+        if (k != 0)
+            return false;
+        int o1 = this.cell.getNum();
+        int o2 = cell.getNum();
+
+        // o1 == 2 white            o2 == 3 || o2 == 4
+        // o1 == 7 black
+
+        int j = (o1 > o2) ? o1 - o2 : o2 - o1;
+        if (this.getColor() == Color.WHITE) {
+            return (o1 == 2) ? o2 == 3 || o2 == 4 : o2 - o1 == 1;
+        } else {
+            return (o1 == 7) ? j == 2 && o2 < o1 || j == 1 && o2 < o1 : j == 1 && o2 < o1;
+        }
     }
 
     @Override
     public boolean canEat(Cell cell) {
-        boolean e = Utils.eatPawn(this.cell, cell);
-        return e;
+        int k = Utils.betweenLetters( this.cell.getLet(), cell.getLet());
+        if (k != 1) {
+            return false;
+        }
+        int o1 = this.cell.getNum();
+        int o2 = cell.getNum();
+        
+        return (this.getColor() == Color.WHITE) ?  o2 - o1 == 1 : o1 - o2 == 1;
     }
 }

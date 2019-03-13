@@ -13,7 +13,6 @@ public class Field {
         for (int i = 8; i > 0; i--) {
             List<Cell> row1 = generateRow(i);
             field.add(row1);
-
         }
     }
 

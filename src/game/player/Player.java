@@ -1,7 +1,7 @@
 package game.player;
 
 public class Player {
-    private static Color color = Color.WHITE;
+    private final Color color;
 
     /**
      * Присваевает цвет игроку
@@ -9,14 +9,13 @@ public class Player {
      */
     public Player(Color color) {
         this.color = color;
-
     }
 
     /**
      * Возращает цвет игрока
      * @return
      */
-    public static Color getColor() {
+    public Color getColor() {
         return color;
     }
 

@@ -46,30 +46,9 @@ public class Utils {
         int o2 = c2.getNum();
         int j = (o1 > o2) ? o1 - o2 : o2 - o1;
         int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
-        return j == 1 && k == 1 || j == 0 && k == 1 || j == 1 && k ==0;
+        return j < 2 && k < 2;
     }
-    public static boolean pawnGo(Cell c1, Cell c2) {
 
-        int o1 = c1.getNum();
-        int o2 = c2.getNum();
-        int j = (o1 > o2) ? o1 - o2 : o2 - o1;
-        int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
-        if (Player.getColor() == Color.WHITE) {
-            return (o1 == 2) ? j == 2 && o2 != 1 && k == 0 || j == 1 && k == 0 && o2 != 1 : j == 1 && k == 0 && o2 > o1;
-        } else {
-            return (o1 == 7) ? j == 2 && o2 < o1 && k == 0 || j == 1 && k == 0 && o2 < o1 : j == 1 && k == 0 && o2 < o1;
-        }
-    }
-        public static boolean eatPawn(Cell c1, Cell c2) {
 
-            int o1 = c1.getNum();
-            int o2 = c2.getNum();
-            int j = (o1 > o2) ? o1 - o2 : o2 - o1;
-            int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
-            if (Player.getColor() == Color.WHITE) {
-                return j == 1 && k == 1 && o2 > o1;
-            } else {
-                return j == 1 && k == 1 && o2 < o1;
-            }
-    }
+
 }
