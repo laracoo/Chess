@@ -31,7 +31,7 @@ public class Pawn extends Chessman {
         if (this.getColor() == Color.WHITE) {
             return (o1 == 2) ? o2 == 3 || o2 == 4 : o2 - o1 == 1;
         } else {
-            return (o1 == 7) ? o2 == 5 || o2 == 6 :o1 - o2 == 1;
+            return (o1 == 7) ? o2 == 5 || o2 == 6 : o1 - o2 == 1;
         }
     }
 
