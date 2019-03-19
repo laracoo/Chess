@@ -2,6 +2,7 @@ package game;
 
 import game.field.Cell;
 import game.field.Letter;
+import game.input.UserInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+
+
         List<Cell> list = new ArrayList<>(4);
 
         Scanner scanner = new Scanner(System.in);
@@ -26,6 +29,7 @@ public class Test {
 
     /**
      * преобразовать строку в клетку
+     *
      * @param s
      * @return
      */
