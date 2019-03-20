@@ -6,6 +6,9 @@ import game.field.Letter;
 import game.player.Color;
 import game.player.Player;
 
+import java.io.Console;
+import java.util.Arrays;
+
 public class Utils {
 
     /**
@@ -47,6 +50,12 @@ public class Utils {
         int j = (o1 > o2) ? o1 - o2 : o2 - o1;
         int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
         return j < 2 && k < 2;
+    }
+
+    public static void main(String[] args) {
+        String s = " sadfa sdf f \n   r 545 df  ";
+        String[] split = s.trim().split("\\s+");
+        System.out.println(Arrays.toString(split));
     }
 
 

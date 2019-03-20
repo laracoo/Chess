@@ -8,31 +8,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ChessConsoleUserInput implements UserInput {
-    public static void main(String[] args) {
-        UserInput s = new ChessConsoleUserInput();
-        System.out.println(s.getNextCoordinates());
+    private final Scanner scanner = new Scanner(System.in);
 
-    }
-
-
-    public static Cell transform(String s) {
+    protected static Cell transform(String s) {
         String let = s.substring(0, 1).toUpperCase();
         String dig = s.substring(1, 2);
         int i = Integer.parseInt(dig);
-
         Letter t = Letter.valueOf(let);
-
         return new Cell(t, i);
-
     }
 
     @Override
     public List<Cell> getNextCoordinates() {
-        List<Cell> list = new ArrayList<>(10);
-        Scanner scanner = new Scanner(System.in);
+        List<Cell> list = new ArrayList<>();
 
-            String sc = scanner.nextLine();
-            String[] s1 = sc.trim().split("\\s+");
+        String[] s1 = scanner.nextLine().trim().split("\\s+");
 
         for (int i = 0; i < s1.length; i++) {
 
@@ -40,7 +30,6 @@ public class ChessConsoleUserInput implements UserInput {
 
             list.add(c);
         }
-
 
 
         return list;

@@ -19,4 +19,10 @@ public class Player {
         return color;
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "color=" + color +
+                '}';
+    }
 }
