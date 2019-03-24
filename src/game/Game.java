@@ -17,6 +17,8 @@ import game.state.State;
  * Основной клас игры, оболочка (задает параметры игры)
  */
 public class Game {
+
+
     private StatePrinter statePrinter = new ChessConsoleStatePrinter();
     private GameEngine gameEngine;
 

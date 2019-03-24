@@ -2,16 +2,20 @@ package game.engine;
 
 import game.field.Cell;
 import game.generators.ChessmanGenerator;
+import game.input.ChessConsoleUserInput;
 import game.input.UserInput;
 import game.player.Color;
 import game.player.Player;
 import game.printer.StatePrinter;
 import game.state.State;
-
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class GameEngine {
+
+
+
     private final StatePrinter statePrinter;
     private final State state = new State();
     private final UserInput userInput;
@@ -42,7 +46,7 @@ public class GameEngine {
         */
     }
 
-    private void gameCycle() {
+    private   void gameCycle() {
         printState();       //просто печатает
         printWhoseTurn();    //просто печатает
 
@@ -76,13 +80,15 @@ public class GameEngine {
     }
 
     private void executeTurn(List<Cell> turn) {
-        //turn - 2 клетки
-        //TODO HM
+        State state = new State();
+        turn = readUserInput();
+        state.changePosition(turn.get(0),turn.get(1));
 
     }
 
-    private List<Cell> readUserInput() {
-        //TODO HM
-        return Collections.emptyList();
+ private List<Cell> readUserInput() {
+       List<Cell> v ;
+         v  = userInput.getNextCoordinates();
+         return v;
     }
 }
