@@ -1,5 +1,8 @@
 package game.engine;
 
+import game.Utils;
+import game.chessman.Chessman;
+import game.chessman.Knight;
 import game.field.Cell;
 import game.generators.ChessmanGenerator;
 import game.input.ChessConsoleUserInput;
@@ -8,12 +11,12 @@ import game.player.Color;
 import game.player.Player;
 import game.printer.StatePrinter;
 import game.state.State;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class GameEngine {
-
 
 
     private final StatePrinter statePrinter;
@@ -37,58 +40,104 @@ public class GameEngine {
     }
 
     public void start() {
-        //printState();
+        gameCycle();
         gameCycle();
         /*
         while (!gameIsEnded()) {
             gameCycle();
         }
         */
+        printState();
     }
 
-    private   void gameCycle() {
+    private void gameCycle() {
         printState();       //просто печатает
         printWhoseTurn();    //просто печатает
 
 
-        List<Cell> cells = readUserInput();
+        List<Cell> cells = null;
+        boolean valid = true;
+        do {
+            if (!valid) {
+                printError();
+            }
+            try {
+                cells = readUserInput();
+                valid = checkValidTurn(cells);
+            } catch (Exception e) {
+                printMessage("Неизвестная клетка");
+                valid = false;
+            }
+        } while (!valid);
+
         executeTurn(cells);
-        printState();
-
-        /*
-        List<Cell> turn = readUserInput();
-        boolean valid = checkValidTurn(turn);
-
-        while (!checkValidTurn(readUserInput())) {
-            printError();
-            printWhoseTurn();
-        }
-        executeTurn();
-        */
+        changePlayer();
+        //printState();
     }
 
     private void printState() {
         statePrinter.printState(state);
     }
 
+    private boolean checkValidTurn(List<Cell> turn) {
+        if (turn.size() != 2) {
+            printMessage("Нужно 2 клетки");
+            return false;
+        }
+
+        Chessman chessman = state.getChessman(turn.get(0));
+
+        if (chessman == null) {
+            //TODO print message
+            return false;
+        }
+
+        if (whoseTurn.getColor() != chessman.getColor()) {
+            //TODO print message
+            return false;
+        }
+
+
+
+        //canMove
+        //TODO проверка может ли фигура так ходить
+
+
+
+        //cell is busy
+        if (chessman.getClass() != Knight.class && !Utils.lineIsFree(turn.get(0), turn.get(1), state)) {
+            //TODO print message
+            return false;
+        }
+
+        //TODO prepare for Git test!!!!
+
+
+
+        return true;
+    }
+
     private void printWhoseTurn() {
-        statePrinter.printMessage("Сейчас ход игрока "+whoseTurn);
+        printMessage("Сейчас ход игрока " + whoseTurn);
+    }
+
+    private void printMessage(String message) {
+        statePrinter.printMessage(message);
     }
 
     private void printError() {
-        statePrinter.printMessage("Ход неверный!");
+        printMessage("Ход неверный! Введите ход еще раз:");
     }
 
     private void executeTurn(List<Cell> turn) {
-        State state = new State();
-        turn = readUserInput();
-        state.changePosition(turn.get(0),turn.get(1));
-
+        state.changePosition(turn.get(0), turn.get(1));
     }
 
- private List<Cell> readUserInput() {
-       List<Cell> v ;
-         v  = userInput.getNextCoordinates();
-         return v;
+    private void changePlayer() {
+        whoseTurn = whoseTurn == player1 ? player2 : player1;
+    }
+
+    private List<Cell> readUserInput() {
+        return userInput.getNextCoordinates();
     }
 }

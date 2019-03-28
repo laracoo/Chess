@@ -21,11 +21,10 @@ public class ChessConsoleStatePrinter implements StatePrinter {
             for (int i = 0; i < 8; i++) {
                 Chessman chee = state.getChessman(row3.get(i));
                 if (chee == null) {
-                    System.out.print(" ");
+                    System.out.printf("%1c", ' ');
                 } else {
-                    System.out.print(chee.getPicture());
+                    System.out.printf("%1c", chee.getPicture());
                 }
-
             }
             System.out.println();
         }
