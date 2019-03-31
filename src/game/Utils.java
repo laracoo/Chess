@@ -1,6 +1,7 @@
 package game;
 
 import game.chessman.Chessman;
+import game.chessman.Knight;
 import game.field.Cell;
 import game.field.Letter;
 import game.player.Color;
@@ -11,6 +12,7 @@ import java.io.Console;
 import java.util.Arrays;
 
 public class Utils {
+
 
     /**
      * Возвращает количесвто букв между l1 и l2
@@ -54,18 +56,11 @@ public class Utils {
     }
 
     public static boolean lineIsFree(Cell from, Cell to, State state) {
-        //state.getChessman()
-        //TODO HM
+       if (onHorizontalLine(from,to));
+       if (from.getNum() < to.getNum()){
+       }
 
-        return true;
+return true;
     }
-
-    public static void main(String[] args) {
-        String s = " sadfa sdf f \n   r 545 df  ";
-        String[] split = s.trim().split("\\s+");
-        System.out.println(Arrays.toString(split));
-    }
-
-
-
 }
+

@@ -88,25 +88,24 @@ public class GameEngine {
         Chessman chessman = state.getChessman(turn.get(0));
 
         if (chessman == null) {
-            //TODO print message
+            printMessage("На этой клетки нет фигуры");
             return false;
         }
 
         if (whoseTurn.getColor() != chessman.getColor()) {
-            //TODO print message
+            printMessage("Сейчас не ваш ход");
+            return false;
+        }
+
+        if (!chessman.canMove(turn.get(1))) {
+            printMessage("Эта фигура не может так ходить");
             return false;
         }
 
 
-
-        //canMove
-        //TODO проверка может ли фигура так ходить
-
-
-
         //cell is busy
         if (chessman.getClass() != Knight.class && !Utils.lineIsFree(turn.get(0), turn.get(1), state)) {
-            //TODO print message
+            printMessage("Тут стоит ваша фигура , вы не можете туда ходить");
             return false;
         }
 
