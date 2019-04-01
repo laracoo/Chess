@@ -56,11 +56,44 @@ public class Utils {
     }
 
     public static boolean lineIsFree(Cell from, Cell to, State state) {
-       if (onHorizontalLine(from,to));
-       if (from.getNum() < to.getNum()){
-       }
+        int start = from.getNum();
+        int end = to.getNum();
 
-return true;
+        if (start > end) {
+            int t = start;
+            start = end;
+            end = t;
+        }
+
+        Letter lStart = from.getLet();
+        Letter lEnd = to.getLet();
+
+        if (lStart.getNumber() > lEnd.getNumber()) {
+            Letter t = lStart;
+            lStart = lEnd;
+            lEnd = t;
+        }
+
+        int max = start == end ? betweenLetters(lStart, lEnd) : end - start;
+
+        int dNum = end == start ? 0 : 1;
+
+        int dLet = betweenLetters(lStart, lEnd) == 0 ? 0 : 1;
+
+        for (int i = 1; i <= max; i++) {
+            int curNum = start + i * dNum;
+            Letter curLet =  Letter.getLetter(lStart.getNumber()+i*dLet);
+
+            System.out.println(curNum+ " "+ curLet);
+            //TODO HM доделать
+
+
+        }
+
+
+
+
+        return true;
     }
 }
 

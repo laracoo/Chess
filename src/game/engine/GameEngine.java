@@ -103,13 +103,10 @@ public class GameEngine {
         }
 
 
-        //cell is busy
         if (chessman.getClass() != Knight.class && !Utils.lineIsFree(turn.get(0), turn.get(1), state)) {
-            printMessage("Тут стоит ваша фигура , вы не можете туда ходить");
+            printMessage("Вы не можете туда ходить");
             return false;
         }
-
-        //TODO prepare for Git test!!!!
 
 
 

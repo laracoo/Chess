@@ -23,4 +23,9 @@ public enum Letter {
     public int getNumber() {
         return number;
     }
+
+    public static Letter getLetter(int i) {
+        Letter[] values = Letter.values();
+        return values[i-1];
+    }
 }
