@@ -11,6 +11,20 @@ public abstract class Chessman {
 
     protected char picture ;
 
+    protected Chessman eatenBy;
+
+    public boolean isAlive() {
+        return eatenBy == null;
+    }
+
+    public Chessman getEatenBy() {
+        return eatenBy;
+    }
+
+    public void setEatenBy(Chessman chessman) {
+        this.eatenBy = chessman;
+    }
+
     /**
      * Возращает id игрока
      * @return

@@ -38,15 +38,15 @@ public class State {
     //      тип     имя     арг
 
     /**
-     * ВЫставляет фигуры на определенную им клетку
+     * ВЫставляет фигуры на определенную им клетку и возвращаем предыдущую фигуру на новой клетке
      * @param ch
      */
-    public void addChessman(Chessman ch) {
-        store.put(ch.getCell(), ch);
+    public Chessman addChessman(Chessman ch) {
+        return store.put(ch.getCell(), ch);
     }
 
     /**
-     * Вернет клетку (ее номер)
+     * Вернет фигуру (по ее клетке)
      * @param c
      * @return
      */
@@ -69,11 +69,11 @@ public class State {
         Chessman first = getChessman(from);
         store.remove(from);
         first.setCell(to);
-        addChessman(first);
+        Chessman ate = addChessman(first);
+        if (ate != null) {
+            ate.setEatenBy(first);
+        }
         //store.put(to, first);
-
-
-
 
     }
 }

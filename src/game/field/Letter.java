@@ -24,6 +24,11 @@ public enum Letter {
         return number;
     }
 
+    /**
+     * Возвращает букву по номеру (с 1)
+     * @param i
+     * @return
+     */
     public static Letter getLetter(int i) {
         Letter[] values = Letter.values();
         return values[i-1];
