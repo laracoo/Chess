@@ -4,6 +4,7 @@ import game.Utils;
 import game.chessman.Chessman;
 import game.chessman.Knight;
 import game.field.Cell;
+import game.field.Letter;
 import game.generators.ChessmanGenerator;
 import game.input.UserInput;
 import game.player.Color;
@@ -21,7 +22,8 @@ public class GameEngine {
     private final Player player2;
     private Player whoseTurn;
 
-    //private Chessman q1;
+    private Chessman queenWhite;
+    private Chessman queenBlack;
 
 
     public GameEngine(StatePrinter statePrinter, UserInput userInput, Player player1, Player player2) {
@@ -33,7 +35,10 @@ public class GameEngine {
 
     public void init() {
         ChessmanGenerator.generateAllChessman(state, player1, player2);
-        //q1 = state.getChessman()
+        Cell q1 = new Cell(Letter.D, 1);
+        queenWhite = state.getChessman(q1);
+        Cell q2 = new Cell(Letter.D, 8);
+        queenBlack = state.getChessman(q2);
         this.whoseTurn = player1.getColor() == Color.WHITE ? player1 : player2;
     }
 
@@ -46,7 +51,10 @@ public class GameEngine {
     }
 
     private boolean gameIsEnded() {
-        //TODO HM
+
+      while(queenWhite != null && queenBlack != null) {
+          return true;
+      }
         return false;
     }
 

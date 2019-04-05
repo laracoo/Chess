@@ -55,7 +55,8 @@ public class Utils {
         return j < 2 && k < 2;
     }
 
-    public static boolean lineIsFree(Cell from, Cell to, State state, boolean excludeLast) {
+    public static boolean lineIsFree(Cell from, Cell to, State state , boolean excludeLast) {
+
         int start = from.getNum();
         int end = to.getNum();
 
@@ -80,11 +81,10 @@ public class Utils {
 
             Cell c = new Cell(curLet, curNum);
             if (state.getChessman(c) != null){
-               return false;
+                return false;
             }
 
         }
         return true;
     }
 }
-
