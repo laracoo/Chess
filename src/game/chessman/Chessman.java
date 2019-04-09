@@ -9,9 +9,22 @@ public abstract class Chessman {
     protected Cell cell;
     protected Player owner;
 
-    protected char picture ;
+    protected char picture;
 
     protected Chessman eatenBy;
+
+    /**
+     * Добавляем в Chessman игрока, цвет игрока и картинку фигуры
+     *
+     * @param id
+     * @param player
+     * @param picture
+     */
+    public Chessman(String id, Player player, char picture) {
+        owner = player;
+        this.id = id;
+        this.picture = picture;
+    }
 
     public boolean isAlive() {
         return eatenBy == null;
@@ -27,6 +40,7 @@ public abstract class Chessman {
 
     /**
      * Возращает id игрока
+     *
      * @return
      */
     public String getId() {
@@ -35,6 +49,7 @@ public abstract class Chessman {
 
     /**
      * присвоевает id игроку
+     *
      * @param id
      */
     public void setId(String id) {
@@ -50,7 +65,8 @@ public abstract class Chessman {
     public abstract boolean canMove(Cell cell);
 
     /**
-     *  передвижение фигур, метод определяет можно ли есть фигуру на клетке Cell
+     * передвижение фигур, метод определяет можно ли есть фигуру на клетке Cell
+     *
      * @param cell
      * @return
      */
@@ -58,6 +74,7 @@ public abstract class Chessman {
 
     /**
      * Возращает клетку на которой стоит фигура
+     *
      * @return
      */
     public Cell getCell() {
@@ -66,6 +83,7 @@ public abstract class Chessman {
 
     /**
      * Присваивает клетку CEll
+     *
      * @param cell
      */
     public void setCell(Cell cell) {
@@ -74,6 +92,7 @@ public abstract class Chessman {
 
     /**
      * Определяет игрока(хозяйна фигуры)
+     *
      * @return
      */
     public Player getOwner() {
@@ -82,6 +101,7 @@ public abstract class Chessman {
 
     /**
      * Присваивает owner  игроку
+     *
      * @param owner
      */
     public void setOwner(Player owner) {
@@ -90,15 +110,11 @@ public abstract class Chessman {
 
     /**
      * Присваеваем цвет игроку( Чёрный или Белый)
+     *
      * @return
      */
     public Color getColor() {
         return owner.getColor();
-    }
-
-    @Override
-    public String toString() {
-        return id + "\\" +  getColor();
     }
 
 //    public Chessman(String id, Player player) {
@@ -106,23 +122,17 @@ public abstract class Chessman {
 //        this.id = id;
 //    }
 
-    /**
-     * Добавляем в Chessman игрока, цвет игрока и картинку фигуры
-     * @param id
-     * @param player
-     * @param picture
-     */
-    public Chessman(String id, Player player, char picture) {
-        owner = player;
-        this.id = id;
-        this.picture = picture;
+    @Override
+    public String toString() {
+        return id + "\\" + getColor();
     }
 
     /**
      * Привает картинку определенной фигуре
+     *
      * @return
      */
-    public char getPicture(){
+    public char getPicture() {
         return picture;
     }
 

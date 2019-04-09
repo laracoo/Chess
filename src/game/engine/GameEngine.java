@@ -22,8 +22,8 @@ public class GameEngine {
     private final Player player2;
     private Player whoseTurn;
 
-    private Chessman queenWhite;
-    private Chessman queenBlack;
+    private Chessman kingWhite;
+    private Chessman kingBlack;
 
 
     public GameEngine(StatePrinter statePrinter, UserInput userInput, Player player1, Player player2) {
@@ -35,10 +35,8 @@ public class GameEngine {
 
     public void init() {
         ChessmanGenerator.generateAllChessman(state, player1, player2);
-        Cell q1 = new Cell(Letter.D, 1);
-        queenWhite = state.getChessman(q1);
-        Cell q2 = new Cell(Letter.D, 8);
-        queenBlack = state.getChessman(q2);
+        kingWhite = state.getChessman(new Cell(Letter.E, 1));
+        kingBlack = state.getChessman(new Cell(Letter.E, 8));
         this.whoseTurn = player1.getColor() == Color.WHITE ? player1 : player2;
     }
 
@@ -46,15 +44,15 @@ public class GameEngine {
         while (!gameIsEnded()) {
             gameCycle();
         }
-
+        printMessage("Игра окончена!");
+        printMessage("Выиграл игрок "+ (kingBlack.isAlive() ? kingBlack.getOwner() : kingWhite.getOwner()));
         printState();
     }
 
     private boolean gameIsEnded() {
-
-      while(queenWhite != null && queenBlack != null) {
-          return true;
-      }
+        if (!kingBlack.isAlive() || !kingWhite.isAlive()) {
+            return true;
+        }
         return false;
     }
 
@@ -80,7 +78,24 @@ public class GameEngine {
 
         executeTurn(cells);
         changePlayer();
+
+        if (check()) {
+            printMessage("Шах "+whoseTurn);
+        }
         //printState();
+    }
+
+    /**
+     * Проверка шаха
+     **/
+    private boolean check() {
+        //TODO HM
+        //state
+        //kings
+        //whoseTurn (king same color)
+        //canEat
+        //-> lineIsFree (если не Knight) смотри 130 строчку кода
+        return false;
     }
 
     private void printState() {

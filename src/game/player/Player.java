@@ -21,8 +21,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "color=" + color +
-                '}';
+        return color == Color.BLACK ? "'Черный'" : "'Белый'";
     }
 }

@@ -42,7 +42,9 @@ public class State {
      * @param ch
      */
     public Chessman addChessman(Chessman ch) {
-        return store.put(ch.getCell(), ch);
+        Cell cell = ch.getCell();
+        Chessman put = store.put(cell, ch);
+        return put;
     }
 
     /**
@@ -66,14 +68,15 @@ public class State {
      * @param to
      */
     public void changePosition(Cell from, Cell to) {
-        Chessman first = getChessman(from);
+        Chessman chFrom = getChessman(from);
         store.remove(from);
-        first.setCell(to);
-        Chessman ate = addChessman(first);
-        if (ate != null) {
-            ate.setEatenBy(first);
+        chFrom.setCell(to);
+        Chessman chTo = addChessman(chFrom);
+        if (chTo != null) {
+            chTo.setEatenBy(chFrom);
+            System.out.println(chTo + " съедена "+ chFrom);
         }
-        //store.put(to, first);
+        //store.put(to, chFrom);
 
     }
 }

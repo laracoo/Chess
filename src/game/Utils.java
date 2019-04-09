@@ -55,7 +55,7 @@ public class Utils {
         return j < 2 && k < 2;
     }
 
-    public static boolean lineIsFree(Cell from, Cell to, State state , boolean excludeLast) {
+    public static boolean lineIsFree(Cell from, Cell to, State state, boolean excludeLast) {
 
         int start = from.getNum();
         int end = to.getNum();
@@ -74,13 +74,13 @@ public class Utils {
         int dLet = Integer.compare(lEnd.getNumber(), lStart.getNumber());
 
 
-        for (int i = 1; i <= max ; i++) {
+        for (int i = 1; i <= max; i++) {
             int curNum = start + i * dNum;
 
-            Letter curLet =  Letter.getLetter(lStart.getNumber()+i*dLet);
+            Letter curLet = Letter.getLetter(lStart.getNumber() + i * dLet);
 
             Cell c = new Cell(curLet, curNum);
-            if (state.getChessman(c) != null){
+            if (state.getChessman(c) != null) {
                 return false;
             }
 
