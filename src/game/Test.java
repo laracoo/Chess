@@ -1,12 +1,12 @@
 package game;
 
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.io.File;
-import java.util.Properties;
-import java.util.regex.MatchResult;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import javax.mail.*;
+//import javax.mail.internet.*;
+//import java.io.File;
+//import java.util.Properties;
+//import java.util.regex.MatchResult;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 
 public class Test {
     public static void main(String[] args) throws Exception {

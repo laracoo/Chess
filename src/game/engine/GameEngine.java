@@ -12,6 +12,8 @@ import game.player.Player;
 import game.printer.StatePrinter;
 import game.state.State;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GameEngine {
@@ -80,7 +82,7 @@ public class GameEngine {
         changePlayer();
 
         if (check()) {
-            printMessage("Шах "+whoseTurn);
+            printMessage("Шах "+ whoseTurn);
         }
         //printState();
     }
@@ -89,12 +91,16 @@ public class GameEngine {
      * Проверка шаха
      **/
     private boolean check() {
-        //TODO HM
-        //state
-        //kings
-        //whoseTurn (king same color)
-        //canEat
-        //-> lineIsFree (если не Knight) смотри 130 строчку кода
+        Cell kingWhite1 = kingWhite.getCell();
+        Cell kingBlack1 = kingBlack.getCell();
+        ArrayList<Chessman> c = state.getAllChessman();
+        for (int i = 0; i < c.size(); i++) {
+            Chessman k = c.get(i);
+            if ((k.getClass() != Knight.class) && !Utils.lineIsFree(k.getCell(), (k.getColor() == Color.BLACK) ? kingBlack1 : kingWhite1, state, true)) {
+                return true;
+               }
+        }
+
         return false;
     }
 

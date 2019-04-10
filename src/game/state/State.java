@@ -2,12 +2,11 @@ package game.state;
 
 import game.chessman.Chessman;
 import game.field.Cell;
-import game.field.Field;
-import game.player.Player;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * хранит состояние игры
@@ -79,4 +78,8 @@ public class State {
         //store.put(to, chFrom);
 
     }
+    public ArrayList getAllChessman() {
+        return new ArrayList(store.values());
+    }
+
 }

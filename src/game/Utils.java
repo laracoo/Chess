@@ -54,6 +54,9 @@ public class Utils {
         int k = Utils.betweenLetters(c1.getLet(), c2.getLet());
         return j < 2 && k < 2;
     }
+    /*
+    проверяет нет ли фигур на клетках между 2 клетками
+     */
 
     public static boolean lineIsFree(Cell from, Cell to, State state, boolean excludeLast) {
 
