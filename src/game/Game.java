@@ -17,14 +17,11 @@ import game.state.State;
  * Основной клас игры, оболочка (задает параметры игры)
  */
 public class Game {
-
-
     private StatePrinter statePrinter = new ChessConsoleStatePrinter();
     private GameEngine gameEngine;
 
     private UserInput userInput = new ChessConsoleUserInput();
 
-    private Field field;
     private Player player1 = new Player(Color.WHITE);
     private Player player2 = new Player(Color.BLACK);
 
@@ -38,22 +35,4 @@ public class Game {
         gameEngine.init();
         gameEngine.start();
     }
-
-    /**
-     * Возращаем Field
-     * @return
-     */
-    public Field getField() {
-        return field;
-    }
-
-    /**
-     * Примвоеваем этому файлу значения
-     * @param field
-     */
-    public void setField(Field field) {
-        this.field = field;
-    }
-
-
 }

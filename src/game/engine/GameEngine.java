@@ -2,6 +2,7 @@ package game.engine;
 
 import game.Utils;
 import game.chessman.Chessman;
+import game.chessman.King;
 import game.chessman.Knight;
 import game.field.Cell;
 import game.field.Letter;
@@ -24,8 +25,8 @@ public class GameEngine {
     private final Player player2;
     private Player whoseTurn;
 
-    private Chessman kingWhite;
-    private Chessman kingBlack;
+    private King kingWhite;
+    private King kingBlack;
 
 
     public GameEngine(StatePrinter statePrinter, UserInput userInput, Player player1, Player player2) {
@@ -37,8 +38,14 @@ public class GameEngine {
 
     public void init() {
         ChessmanGenerator.generateAllChessman(state, player1, player2);
-        kingWhite = state.getChessman(new Cell(Letter.E, 1));
-        kingBlack = state.getChessman(new Cell(Letter.E, 8));
+        Chessman chessman = state.getChessman(new Cell(Letter.E, 1));
+        if (chessman instanceof King) {
+            kingWhite = (King) chessman;
+        }
+        chessman = state.getChessman(new Cell(Letter.E, 8));
+        if (chessman instanceof King) {
+            kingBlack = (King) chessman;
+        }
         this.whoseTurn = player1.getColor() == Color.WHITE ? player1 : player2;
     }
 
@@ -47,7 +54,7 @@ public class GameEngine {
             gameCycle();
         }
         printMessage("Игра окончена!");
-        printMessage("Выиграл игрок "+ (kingBlack.isAlive() ? kingBlack.getOwner() : kingWhite.getOwner()));
+        printMessage("Выиграл игрок " + (kingBlack.isAlive() ? kingBlack.getOwner() : kingWhite.getOwner()));
         printState();
     }
 
@@ -81,8 +88,8 @@ public class GameEngine {
         executeTurn(cells);
         changePlayer();
 
-        if (check()) {
-            printMessage("Шах "+ whoseTurn);
+        if (check(kingBlack.getOwner() == whoseTurn ? kingBlack : kingWhite)) {
+            printMessage("Шах " + whoseTurn);
         }
         //printState();
     }
@@ -90,15 +97,23 @@ public class GameEngine {
     /**
      * Проверка шаха
      **/
-    private boolean check() {
-        Cell kingWhite1 = kingWhite.getCell();
-        Cell kingBlack1 = kingBlack.getCell();
-        ArrayList<Chessman> c = state.getAllChessman();
+    private boolean check(King king) {
+        Cell kingCell = king.getCell();
+
+        //TODO HW (проверить что работает корректно с фигурами Слон, Конь, Ладья.)
+
+        List<Chessman> c = state.getAllChessman(king.getColor() == Color.BLACK ? Color.WHITE : Color.BLACK);
+        //System.out.println(c);
         for (int i = 0; i < c.size(); i++) {
             Chessman k = c.get(i);
-            if ((k.getClass() != Knight.class) && !Utils.lineIsFree(k.getCell(), (k.getColor() == Color.BLACK) ? kingBlack1 : kingWhite1, state, true)) {
+
+            if (
+                    k.canEat(kingCell)
+                    && (k.getClass() != Knight.class)
+                    && !Utils.lineIsFree(k.getCell(), kingCell, state, true)
+            ) {
                 return true;
-               }
+            }
         }
 
         return false;

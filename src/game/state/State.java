@@ -2,11 +2,11 @@ package game.state;
 
 import game.chessman.Chessman;
 import game.field.Cell;
+import game.player.Color;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * хранит состояние игры
@@ -78,8 +78,22 @@ public class State {
         //store.put(to, chFrom);
 
     }
-    public ArrayList getAllChessman() {
-        return new ArrayList(store.values());
+
+    public List<Chessman> getAllChessman() {
+        return new ArrayList<>(store.values());
+    }
+
+    public List<Chessman> getAllChessman(Color color) {
+        /*
+        List<Chessman> result = new ArrayList<>();
+        Collection<Chessman> chessmen = store.values();
+        for (Chessman chessman: chessmen) {
+            if (chessman.getColor() == color)
+                result.add(chessman);
+        }
+        return result;
+        */
+        return store.values().stream().filter(chessman -> chessman.getColor() == color).collect(Collectors.toList());
     }
 
 }

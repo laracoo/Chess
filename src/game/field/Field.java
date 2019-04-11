@@ -51,4 +51,15 @@ public class Field {
         return field.get(num);
     }
 
+    /**
+     * возвращает клетку по координатам
+     * @param num
+     * @param let
+     * @return
+     */
+    public Cell getCell(int num, int let) {
+        //TODO test this method
+        return field.get(8-num).get(let-1);
+    }
+
 }

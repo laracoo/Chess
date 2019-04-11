@@ -8,13 +8,26 @@ package game;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 
+import game.chessman.Chessman;
+import game.chessman.King;
+import game.player.Color;
+import game.player.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Test {
     public static void main(String[] args) throws Exception {
         //patternTest();
         //mailTest("", "", new File("C:\\Users\\User\\Desktop\\for_website\\002.jpg"));
+        King k = null;
+        //k.getColor();
 
 
     }
+
+
 /*
     public static void mailTest(String username, String pass, File file) throws Exception {
 
