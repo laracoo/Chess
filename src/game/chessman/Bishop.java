@@ -7,7 +7,7 @@ import game.player.Player;
 public class Bishop extends Chessman {
 
     /**
-     *По цвету игрока присаевает ему соответственного цвета фигуру "слон"
+     * По цвету игрока присаевает ему соответственного цвета фигуру "слон"
      * @param id
      * @param player
      */

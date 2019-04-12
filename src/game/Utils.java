@@ -56,8 +56,13 @@ public class Utils {
     }
 
     /**
-    проверяет нет ли фигур на клетках между 2 клетками
-     **/
+     *  проверяет нет ли фигур на клетках между 2 клетками
+     * @param from
+     * @param to
+     * @param state
+     * @param excludeLast
+     * @return
+     */
     public static boolean lineIsFree(Cell from, Cell to, State state, boolean excludeLast) {
 
         int start = from.getNum();

@@ -40,11 +40,11 @@ public class GameEngine {
         ChessmanGenerator.generateAllChessman(state, player1, player2);
         Chessman chessman = state.getChessman(new Cell(Letter.E, 1));
         if (chessman instanceof King) {
-            kingWhite = (King) chessman;
+            kingWhite = (King)chessman;
         }
         chessman = state.getChessman(new Cell(Letter.E, 8));
         if (chessman instanceof King) {
-            kingBlack = (King) chessman;
+            kingBlack = (King)chessman;
         }
         this.whoseTurn = player1.getColor() == Color.WHITE ? player1 : player2;
     }
@@ -91,7 +91,6 @@ public class GameEngine {
         if (check(kingBlack.getOwner() == whoseTurn ? kingBlack : kingWhite)) {
             printMessage("Шах " + whoseTurn);
         }
-        //printState();
     }
 
     /**
@@ -99,19 +98,10 @@ public class GameEngine {
      **/
     private boolean check(King king) {
         Cell kingCell = king.getCell();
-
-        //TODO HW (проверить что работает корректно с фигурами Слон, Конь, Ладья.)
-
         List<Chessman> c = state.getAllChessman(king.getColor() == Color.BLACK ? Color.WHITE : Color.BLACK);
-        //System.out.println(c);
         for (int i = 0; i < c.size(); i++) {
             Chessman k = c.get(i);
-
-            if (
-                    k.canEat(kingCell)
-                    && (k.getClass() != Knight.class)
-                    && !Utils.lineIsFree(k.getCell(), kingCell, state, true)
-            ) {
+            if (k.canEat(kingCell) &&  !Utils.lineIsFree(k.getCell(), kingCell, state, true)) {
                 return true;
             }
         }

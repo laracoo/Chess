@@ -30,8 +30,6 @@ public class ChessConsoleUserInput implements UserInput {
 
             list.add(c);
         }
-
-
         return list;
     }
 }

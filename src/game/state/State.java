@@ -75,12 +75,6 @@ public class State {
             chTo.setEatenBy(chFrom);
             System.out.println(chTo + " съедена "+ chFrom);
         }
-        //store.put(to, chFrom);
-
-    }
-
-    public List<Chessman> getAllChessman() {
-        return new ArrayList<>(store.values());
     }
 
     public List<Chessman> getAllChessman(Color color) {

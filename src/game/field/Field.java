@@ -35,12 +35,6 @@ public class Field {
 
         return row1;
     }
-/*
-    public static void main(String[] args) {
-        Field field = new Field();
-        System.out.println(field.field);
-    }
-*/
 
     /**
      * Возращает линию из клеток нашего поля

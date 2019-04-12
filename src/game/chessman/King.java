@@ -12,7 +12,7 @@ public class King extends Chessman {
      * @param player
      */
     public King(String id, Player player) {
-        super(id, player,player.getColor() == Color.WHITE ? '\u2654' : '\u265A');
+        super(id, player, player.getColor() == Color.WHITE ? '\u2654' : '\u265A');
     }
 
     @Override

@@ -31,6 +31,6 @@ public enum Letter {
      */
     public static Letter getLetter(int i) {
         Letter[] values = Letter.values();
-        return values[i-1];
+        return values[i - 1];
     }
 }

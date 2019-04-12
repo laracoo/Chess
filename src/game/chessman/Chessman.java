@@ -117,11 +117,6 @@ public abstract class Chessman {
         return owner.getColor();
     }
 
-//    public Chessman(String id, Player player) {
-//        owner = player;
-//        this.id = id;
-//    }
-
     @Override
     public String toString() {
         return id + "\\" + getColor();

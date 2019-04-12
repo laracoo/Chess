@@ -21,13 +21,13 @@ public class Pawn extends Chessman {
         int k = Utils.betweenLetters(this.cell.getLet(), cell.getLet());
         if (k != 0)
             return false;
+
         int o1 = this.cell.getNum();
         int o2 = cell.getNum();
 
         // o1 == 2 white            o2 == 3 || o2 == 4
         // o1 == 7 black
 
-        int j = (o1 > o2) ? o1 - o2 : o2 - o1;
         if (this.getColor() == Color.WHITE) {
             return (o1 == 2) ? o2 == 3 || o2 == 4 : o2 - o1 == 1;
         } else {

@@ -30,7 +30,6 @@ public class Game {
      */
     public void start() {
         System.out.println("Игра началась");
-
         gameEngine = new GameEngine(statePrinter, userInput, player1, player2);
         gameEngine.init();
         gameEngine.start();
