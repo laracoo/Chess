@@ -1,31 +1,34 @@
 package game.player;
 
+import game.input.ConsolePlayerConnection;
+import game.input.PlayerConnection;
 import game.input.PlayerInput;
 import game.printer.PlayerOutput;
 
 public class Player {
     private final Color color;
-    private final PlayerOutput playerOutput;
-    private final PlayerInput playerInput;
+    PlayerConnection connection = new ConsolePlayerConnection();
+
 
     /**
      * Присваевает цвет игроку
      * @param color
-     * @param playerOutput
-     * @param playerInput
+     *
      */
-    public Player(Color color, PlayerOutput playerOutput, PlayerInput playerInput) {
+    public Player(Color color, PlayerConnection connection) {
         this.color = color;
-        this.playerOutput = playerOutput;
-        this.playerInput = playerInput;
+       final PlayerConnection c = connection;
+
     }
 
     public PlayerOutput getPlayerOutput() {
-        return playerOutput;
+        connection.userInput();
+        return connection.userOutput();
     }
 
     public PlayerInput getPlayerInput() {
-        return playerInput;
+        connection.userInput();
+        return connection.userInput();
     }
 
     /**
