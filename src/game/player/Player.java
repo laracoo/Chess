@@ -18,16 +18,15 @@ public class Player {
     public Player(Color color, PlayerConnection connection) {
         this.color = color;
        final PlayerConnection c = connection;
+       this.connection = connection;
 
     }
 
     public PlayerOutput getPlayerOutput() {
-        connection.userInput();
         return connection.userOutput();
     }
 
     public PlayerInput getPlayerInput() {
-        connection.userInput();
         return connection.userInput();
     }
 
