@@ -4,10 +4,10 @@ import game.field.Cell;
 
 import java.util.List;
 
-public interface UserInput {
+public interface PlayerInput {
     /**
      * получить следующие координаты от пользователя
      * @return
      */
-     List<Cell> getNextCoordinates();
+     List<Cell> readNextTurn();
 }

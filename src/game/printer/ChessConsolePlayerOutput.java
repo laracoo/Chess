@@ -7,7 +7,7 @@ import game.state.State;
 
 import java.util.List;
 
-public class ChessConsoleStatePrinter implements StatePrinter {
+public class ChessConsolePlayerOutput implements PlayerOutput {
     Field f2 = new Field();
 
     /**
@@ -15,7 +15,7 @@ public class ChessConsoleStatePrinter implements StatePrinter {
      * @param state
      */
     @Override
-    public void printState(State state) {
+    public void send(State state) {
         for (int u = 0; u < 8; u++) {
             List<Cell> row3 = f2.getRow(u);
             for (int i = 0; i < 8; i++) {
@@ -32,7 +32,7 @@ public class ChessConsoleStatePrinter implements StatePrinter {
     }
 
     @Override
-    public void printMessage(String message) {
+    public void send(String message) {
         System.out.println(message);
     }
 

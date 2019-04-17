@@ -7,6 +7,8 @@ import game.player.Color;
 import game.player.Player;
 import game.state.State;
 
+import java.util.Arrays;
+
 public class ChessmanGenerator {
 
     public static void generateAllChessman(State state, Player player1, Player player2) {

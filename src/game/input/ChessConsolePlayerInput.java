@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ChessConsoleUserInput implements UserInput {
+public class ChessConsolePlayerInput implements PlayerInput {
     private final Scanner scanner = new Scanner(System.in);
 
     protected static Cell transform(String s) {
@@ -19,7 +19,7 @@ public class ChessConsoleUserInput implements UserInput {
     }
 
     @Override
-    public List<Cell> getNextCoordinates() {
+    public List<Cell> readNextTurn() {
         List<Cell> list = new ArrayList<>();
 
         String[] s1 = scanner.nextLine().trim().split("\\s+");

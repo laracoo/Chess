@@ -51,9 +51,7 @@ public class Field {
      * @param let
      * @return
      */
-    public Cell getCell(int num, int let) {
-        //TODO test this method
+    public Cell getCell(int let, int num) {
         return field.get(8-num).get(let-1);
     }
-
 }

@@ -2,37 +2,24 @@ package game.state;
 
 import game.chessman.Chessman;
 import game.field.Cell;
+import game.field.Field;
 import game.player.Color;
 
-import java.util.*;
-import java.util.function.Predicate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
  * хранит состояние игры
  */
 public class State {
-
-    // Player -> (id -> Chessman)
-    //private Map<Player, Map<String, Chessman>> store = new HashMap<>();
-
+    private Field field = new Field();
 
     //cell -> chessman
     //      тип переменной      имя переменной      ее реализация
     private Map<Cell, Chessman> store = new HashMap<>();
-
-
-    /*public void addChessman(Chessman c1) {
-        Map<String, Chessman> innerMap = store.get(c1.getOwner());
-        if (innerMap == null) {
-            innerMap = new HashMap<>();
-            Player key = c1.getOwner();
-            store.put(key, innerMap);
-        }
-
-        String id = c1.getId();
-        innerMap.put(id,c1);
-    }*/
 
     //      тип     имя     арг
 
@@ -52,6 +39,16 @@ public class State {
      * @return
      */
     public Chessman getChessman(Cell c) {
+        return store.get(c);
+    }
+
+    /**
+     * Вернет фигуру (по координатам)
+     * @param
+     * @return
+     */
+    public Chessman getChessman(int let, int num) {
+        Cell c = field.getCell(let, num);
         return store.get(c);
     }
 
@@ -78,16 +75,11 @@ public class State {
     }
 
     public List<Chessman> getAllChessman(Color color) {
-        /*
-        List<Chessman> result = new ArrayList<>();
-        Collection<Chessman> chessmen = store.values();
-        for (Chessman chessman: chessmen) {
-            if (chessman.getColor() == color)
-                result.add(chessman);
-        }
-        return result;
-        */
         return store.values().stream().filter(chessman -> chessman.getColor() == color).collect(Collectors.toList());
+    }
+
+    public List<Chessman> getAllChessman() {
+        return new ArrayList<>(store.values());
     }
 
 }

@@ -3,6 +3,7 @@ package game;
 import game.chessman.Chessman;
 import game.chessman.Knight;
 import game.field.Cell;
+import game.field.Field;
 import game.field.Letter;
 import game.player.Color;
 import game.player.Player;
@@ -12,6 +13,9 @@ import java.io.Console;
 import java.util.Arrays;
 
 public class Utils {
+    private Utils() {}
+
+    private final static Field FIELD = new Field();
 
 
     /**
@@ -56,7 +60,7 @@ public class Utils {
     }
 
     /**
-     *  проверяет нет ли фигур на клетках между 2 клетками
+     *  проверяет нет ли фигур на клетках между 2 клетками (не работает для коня!)
      * @param from
      * @param to
      * @param state
@@ -64,6 +68,9 @@ public class Utils {
      * @return
      */
     public static boolean lineIsFree(Cell from, Cell to, State state, boolean excludeLast) {
+        if (state.getChessman(from).getClass() == Knight.class) {
+            throw new RuntimeException("Can't check is line free for the Knight on "+from);
+        }
 
         int start = from.getNum();
         int end = to.getNum();
@@ -84,11 +91,9 @@ public class Utils {
 
         for (int i = 1; i <= max; i++) {
             int curNum = start + i * dNum;
+            int curLet = lStart.getNumber() + i * dLet;
 
-            Letter curLet = Letter.getLetter(lStart.getNumber() + i * dLet);
-
-            Cell c = new Cell(curLet, curNum);
-            if (state.getChessman(c) != null) {
+            if (state.getChessman(curLet, curNum) != null) {
                 return false;
             }
 
