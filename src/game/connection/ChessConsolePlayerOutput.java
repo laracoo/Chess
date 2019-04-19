@@ -1,4 +1,4 @@
-package game.printer;
+package game.connection;
 
 import game.chessman.Chessman;
 import game.field.Cell;

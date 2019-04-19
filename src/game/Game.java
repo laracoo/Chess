@@ -1,14 +1,10 @@
 package game;
 
 import game.engine.GameEngine;
-import game.input.ChessConsolePlayerInput;
-import game.input.ConsolePlayerConnection;
-import game.input.PlayerConnection;
-import game.input.PlayerInput;
+import game.connection.ConsolePlayerConnection;
+import game.connection.PlayerConnection;
 import game.player.Color;
 import game.player.Player;
-import game.printer.ChessConsolePlayerOutput;
-import game.printer.PlayerOutput;
 
 /**
  * Основной клас игры, оболочка (задает параметры игры)

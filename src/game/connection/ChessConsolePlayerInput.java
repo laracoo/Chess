@@ -1,4 +1,4 @@
-package game.input;
+package game.connection;
 
 import game.field.Cell;
 import game.field.Letter;

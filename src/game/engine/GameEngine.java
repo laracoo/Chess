@@ -7,10 +7,8 @@ import game.chessman.Knight;
 import game.field.Cell;
 import game.field.Letter;
 import game.generators.ChessmanGenerator;
-import game.input.PlayerInput;
 import game.player.Color;
 import game.player.Player;
-import game.printer.PlayerOutput;
 import game.state.State;
 
 import java.util.List;
@@ -60,8 +58,8 @@ public class GameEngine {
     }
 
     private void gameCycle() {
-        printWhoseTurn(whoseTurn);    //просто печатает
         printState(whoseTurn);       //просто печатает
+        printWhoseTurn(whoseTurn);    //просто печатает
 
 
         List<Cell> cells = null;
