@@ -5,9 +5,11 @@ import game.player.Player;
 import game.state.State;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -51,7 +53,7 @@ public class ChessApplication extends Application {
         //root.setMaxWidth(400);
         //root.setPrefWidth(900);
 
-        root.getChildren().addAll(getLeftPanel(), new SplitPane(), getRightPanel());
+        root.getChildren().addAll(getLeftPanel(), new Separator(Orientation.VERTICAL), getRightPanel());
 
 
         //root.getChildren().addAll(getTexts());
