@@ -9,5 +9,5 @@ public interface PlayerInput {
      * получить следующие координаты от пользователя
      * @return
      */
-     List<Cell> readNextTurn();
+     List<Cell> readNextTurn() throws GameInputException;
 }

@@ -19,16 +19,21 @@ public class ChessConsolePlayerInput implements PlayerInput {
     }
 
     @Override
-    public List<Cell> readNextTurn() {
+    public List<Cell> readNextTurn() throws GameInputException {
         List<Cell> list = new ArrayList<>();
 
         String[] s1 = scanner.nextLine().trim().split("\\s+");
 
         for (int i = 0; i < s1.length; i++) {
 
-            Cell c = transform(s1[i]);
+            try {
+                Cell c = transform(s1[i]);
+                list.add(c);
+            } catch (Exception e) {
+                throw new GameInputException("Неизвестная клетка", e);
+            }
 
-            list.add(c);
+
         }
         return list;
     }

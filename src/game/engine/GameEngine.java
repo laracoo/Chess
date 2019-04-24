@@ -4,6 +4,7 @@ import game.Utils;
 import game.chessman.Chessman;
 import game.chessman.King;
 import game.chessman.Knight;
+import game.connection.GameInputException;
 import game.field.Cell;
 import game.field.Letter;
 import game.generators.ChessmanGenerator;
@@ -68,13 +69,17 @@ public class GameEngine {
             if (!valid) {
                 printError(whoseTurn);
             }
+
             try {
                 cells = readUserInput(whoseTurn);
                 valid = checkValidTurn(cells);
-            } catch (Exception e) {
-                printMessage(whoseTurn, "Неизвестная клетка");
+            //} catch (GameInputException | IOException e) {
+            } catch (GameInputException e) {
+                printMessage(whoseTurn, e.getMessage());
+                //printMessage(whoseTurn, e.getCause().getMessage());
                 valid = false;
             }
+
         } while (!valid);
 
         executeTurn(cells);
@@ -181,7 +186,8 @@ public class GameEngine {
         whoseTurn = whoseTurn == player1 ? player2 : player1;
     }
 
-    private List<Cell> readUserInput(Player player) {
+    private List<Cell> readUserInput(Player player) throws GameInputException {
         return player.getPlayerInput().readNextTurn();
+
     }
 }
