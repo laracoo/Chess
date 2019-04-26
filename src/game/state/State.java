@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * хранит состояние игры
  */
 public class State {
-    private Field field = new Field();
+    //private Field field = new Field();
 
     //cell -> chessman
     //      тип переменной      имя переменной      ее реализация
@@ -48,7 +48,7 @@ public class State {
      * @return
      */
     public Chessman getChessman(int let, int num) {
-        Cell c = field.getCell(let, num);
+        Cell c = Field.getCell(let, num);
         return store.get(c);
     }
 

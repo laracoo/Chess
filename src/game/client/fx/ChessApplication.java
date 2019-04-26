@@ -1,19 +1,19 @@
 package game.client.fx;
 
+import game.chessman.Chessman;
+import game.field.Cell;
+import game.field.Field;
 import game.generators.ChessmanGenerator;
 import game.player.Player;
 import game.state.State;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
-import javafx.scene.control.SplitPane;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -49,11 +49,14 @@ public class ChessApplication extends Application {
         //VBox root = new VBox();
         HBox root = new HBox();
         root.setSpacing(20);
+        root.setPrefWidth(400);
+        root.setPrefHeight(400);
 
         //root.setMaxWidth(400);
         //root.setPrefWidth(900);
 
-        root.getChildren().addAll(getLeftPanel(), new Separator(Orientation.VERTICAL), getRightPanel());
+        //root.getChildren().addAll(getLeftPanel(), new Separator(Orientation.VERTICAL), getRightPanel());
+        root.getChildren().addAll(getLeftPanel());
 
 
         //root.getChildren().addAll(getTexts());
@@ -63,21 +66,26 @@ public class ChessApplication extends Application {
         return scene;
     }
 
+    //private Field field = new Field();
+    private ClientField clientField = new ClientField();
+
     private Node getLeftPanel()  {
-        VBox vBox = new VBox();
-        StackPane stackPane = new StackPane();
-        stackPane.setBackground(new Background(new BackgroundFill(Color.rgb(40, 230, 40), CornerRadii.EMPTY, Insets.EMPTY)));
-        Text b1 = new Text("\u2657");
-        b1.setFont(new Font("Times New Roman", 35));
-        Text b2 = new Text("\u2657");
-        Button b3 = new Button("\u2657");
-        //b3.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web("#009923"), CornerRadii.EMPTY, new Insets(10, 10, 10, 10))));
-        vBox.getChildren().addAll(b1, b2, b3);
-        b1.setOnMouseClicked(event -> {
-            System.out.println("clicked");
-            b1.setFill(Color.color(0.5, 0.2, 0.3));
-        });
-        return vBox;
+        //VBox vBox = new VBox();
+
+        HBox line = new HBox();
+
+        List<Cell> row = Field.getRow(0);
+
+        for (Cell cell: row) {
+            Chessman chessman = state.getChessman(cell);
+
+
+
+            StackPane guiCell = clientField.generateCell(chessman.getCell(), chessman);
+            line.getChildren().addAll(new Separator(Orientation.VERTICAL), guiCell);
+        }
+
+        return line;
     }
 
     private Node getRightPanel() {

@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class Utils {
     private Utils() {}
 
-    private final static Field FIELD = new Field();
+    //private final static Field FIELD = new Field();
 
 
     /**
